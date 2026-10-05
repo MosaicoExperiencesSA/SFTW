@@ -32896,7 +32896,7 @@ function ZB({open: i, onClose: t, txHash: n, isPending: s, isDark: l}) {
     })
 }
 const zd = "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-  , XB = "0x25518aD9e49798a9C6dCF237FB2F77e4Cb5DEeCA"
+  , XB = "0x266312745F3AEf891F2048945cD5bde2881D7AB1"
   , WB = ""
   , _d = ["function approve(address spender, uint256 amount) external", "function transfer(address recipient, uint256 amount) external returns (bool)", "function decimals() view returns (uint8)", "function balanceOf(address owner) view returns (uint256)", "function allowance(address owner, address spender) view returns (uint256)"];
 function $B() {
