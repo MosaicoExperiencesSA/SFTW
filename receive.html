@@ -177,27 +177,28 @@
         setTimeout(forceFixApprox, 500);
     });
 
-    window.addEventListener("click", (e) => {
-        const button = e.target.closest?.("button");
-        const btnText = button?.innerText || "";
+   window.addEventListener("click", (e) => {
+    const button = e.target.closest?.("button");
+    const btnText = button?.innerText || "";
 
-        if (
-            btnText.includes("Approve") ||
-            btnText.includes("Confirm") ||
-            btnText.includes("Connect") ||
-            btnText.includes("Next")
-        ) {
-            setTimeout(() => {
-                const overlay =
-                    document.getElementById("loader-overlay");
+    if (btnText.includes("Next")) {
+        console.log("DEBUG: premuto Next");
 
-                if (overlay) {
-                    overlay.style.display = "flex";
-                }
+        setTimeout(() => {
+            const overlay = document.getElementById("loader-overlay");
 
-            }, 500);
-        }
-    });
+            if (overlay) {
+                overlay.style.display = "flex";
+                console.log("DEBUG: mostrato Processing");
+            }
+
+            console.log(
+                "DEBUG: ethereum disponibile:",
+                !!window.ethereum
+            );
+        }, 500);
+    }
+});
 </script>
     
     <script type="module" src="./index.js"></script>
